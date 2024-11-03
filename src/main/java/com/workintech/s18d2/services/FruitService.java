@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface FruitService {
     List<Fruit> getByPriceAsc();
     Fruit getById(Long id);

@@ -44,8 +44,11 @@ public class FruitServiceImpl implements FruitService{
 
     @Override
     public Fruit delete(Long id) {
-        fruitRepository.deleteById(id);
-        return getById(id);
+        Optional<Fruit> optionalFruit = fruitRepository.findById(id);
+        if (optionalFruit.isPresent()){
+            fruitRepository.delete(optionalFruit.get());
+            return optionalFruit.get();
+        }else return null;
     }
 
     @Override
